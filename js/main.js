@@ -19,59 +19,78 @@ const nextButton = document.querySelector('div.next');
 let activeElement = 0;
 
 nextButton.addEventListener('click', function () {
-    //  remove all'immagini corrente la classe d-block 
-    carouselElements[activeElement].classList.remove('d-block');
+    if (activeElement < 4) {
+        //  remove all'immagini corrente la classe d-block 
+        carouselElements[activeElement].classList.remove('d-block');
 
-    //aggiungo la classe d-none per renderla invisibile
-    carouselElements[activeElement].classList.add('d-none');
+        //aggiungo la classe d-none per renderla invisibile
+        carouselElements[activeElement].classList.add('d-none');
 
-    //  remove al bookmark corrente la classe active per renderla invisibile
-    bookmarkElements[activeElement].classList.remove('active');
+        //  remove al bookmark corrente la classe active per renderla invisibile
+        bookmarkElements[activeElement].classList.remove('active');
 
-    //rimuovo il bordo
-    carouselImgLeft[activeElement].classList.remove("img-thumbnail");
+        //rimuovo il bordo
+        carouselImgLeft[activeElement].classList.remove("img-thumbnail");
 
-    //aggiungo l'opacity
-    carouselImgLeft[activeElement].classList.add("opacity-50");
+        //aggiungo l'opacity
+        carouselImgLeft[activeElement].classList.add("opacity-50");
 
-    // incrementiamo di uno l'indice dell'immagine selezionata
-    activeElement++; // activeElement = activeElement + 1 ;
+        // incrementiamo di uno l'indice dell'immagine selezionata
+        activeElement++; // activeElement = activeElement + 1 ;
 
-    //rimuovo la classe d-none
-    carouselElements[activeElement].classList.remove('d-none');
+        //rimuovo la classe d-none
+        carouselElements[activeElement].classList.remove('d-none');
 
-    // aggiungere la classe active all'immagine successiva
-    carouselElements[activeElement].classList.add('d-block');
+        // aggiungere la classe active all'immagine successiva
+        carouselElements[activeElement].classList.add('d-block');
 
-    // aggiungere la classe active al bookmark successivo
-    bookmarkElements[activeElement].classList.add('active');
+        // aggiungere la classe active al bookmark successivo
+        bookmarkElements[activeElement].classList.add('active');
 
-    //rimuovo il bordo
-    carouselImgLeft[activeElement].classList.add("img-thumbnail");
+        //rimuovo il bordo
+        carouselImgLeft[activeElement].classList.add("img-thumbnail");
 
-    //aggiungo l'opacity
-    carouselImgLeft[activeElement].classList.remove("opacity-50");
+        //aggiungo l'opacity
+        carouselImgLeft[activeElement].classList.remove("opacity-50");
+    }
+
 });
 
 const previusButton = document.querySelector('div.previus');
 
-let previusElement = 1;
-
 previusButton.addEventListener('click', function () {
-    //  remove all'immagini corrente la classe active per renderla invisibile
-    carouselElements[previusElement].classList.remove('d-block');
-    carouselElements[previusElement].classList.add('d-none');
-    //  remove al bookmark corrente la classe active per renderla invisibile
-    bookmarkElements[previusElement].classList.remove('active');
+    if (activeElement > 0) {
+        //  remove all'immagini corrente la classe d-block 
+        carouselElements[activeElement].classList.remove('d-block');
 
-    // incrementiamo di uno l'indice dell'immagine selezionata
-    previusElement--; // previusElement = previusElement + 1 ;
+        //aggiungo la classe d-none per renderla invisibile
+        carouselElements[activeElement].classList.add('d-none');
 
-    // aggiungere la classe active all'immagine successiva
-    carouselElements[previusElement].classList.add('d-block');
+        //  remove al bookmark corrente la classe active per renderla invisibile
+        bookmarkElements[activeElement].classList.remove('active');
 
-    // aggiungere la classe active al bookmark successivo
-    bookmarkElements[previusElement].classList.add('active');
+        //rimuovo il bordo
+        carouselImgLeft[activeElement].classList.remove("img-thumbnail");
+
+        //aggiungo l'opacity
+        carouselImgLeft[activeElement].classList.add("opacity-50");
+
+        // incrementiamo di uno l'indice dell'immagine selezionata
+        activeElement--; // activeElement = activeElement + 1 ;
+
+        //rimuovo la classe d-none
+        carouselElements[activeElement].classList.remove('d-none');
+
+        // aggiungere la classe active all'immagine successiva
+        carouselElements[activeElement].classList.add('d-block');
+
+        // aggiungere la classe active al bookmark successivo
+        bookmarkElements[activeElement].classList.add('active');
+
+        //rimuovo il bordo
+        carouselImgLeft[activeElement].classList.add("img-thumbnail");
+
+        //aggiungo l'opacity
+        carouselImgLeft[activeElement].classList.remove("opacity-50");
+    }
 });
-
-/*img-thumbnail  */
