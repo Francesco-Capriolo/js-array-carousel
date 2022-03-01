@@ -1,3 +1,11 @@
-div.row {
-    background-color: aqua;
+.circle {
+    display: inline-block;
+    height: .75rem;
+    width: .75rem;
+    background-color: rgb(134, 134, 118);
+    border-radius: 50%;
+}
+
+.circle.active {
+    background-color: beige;
 }
