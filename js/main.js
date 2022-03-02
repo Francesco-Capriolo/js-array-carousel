@@ -1,3 +1,11 @@
+const images = [
+    "img/01.jpg",
+    "img/02.jpg",
+    "img/03.jpg",
+    "img/04.jpg",
+    "img/05.jpg"
+]
+
 const title = [
     'Svezia',
     'Svizzera',
@@ -18,6 +26,9 @@ let carouselContent = '';
 //ciclo for per far girare gli array(div creato nel js) sulle immagini
 for (let i = 0; i < title.length; i++) {
     carouselContent += `
+    <div class = "col d-none carousel-element">
+                <img class = "img-fluid w-100 h-100" src = "${images[i]}" alt = "${title[i]}">
+            </div>
     <div class = "description position-absolute top-50 end-0 d-none text-white  z-index bg-opacity-25 bg-secondary text-end">
     <h1>${title[i]}</h1>
     <p>${text[i]}</p>
@@ -40,11 +51,13 @@ const bookmarkElements = document.getElementsByClassName('circle');
 bookmarkElements[0].classList.add('active');
 
 //aggiungo la descrizione il block
-descriptionCarousel[0].classList.remove("d-none")
+descriptionCarousel[0].classList.remove("d-none");
+
+//aggiungo all'immagine il block
+carouselElements[0].classList.remove("d-none");
 
 //aggiungo il bordo
 carouselImgLeft[0].classList.add("img-thumbnail");
-console.log(carouselElements);
 
 // Recupero il bottone
 const nextButton = document.querySelector('div.next');
@@ -70,7 +83,7 @@ nextButton.addEventListener('click', function () {
         carouselImgLeft[activeElement].classList.add("opacity-50");
 
         //rimuovo la descrizione corrente
-        descriptionCarousel[activeElement].classList.add("d-none");
+        descriptionCarousel[activeElement].classList.add("d-none")
 
         // incrementiamo di uno l'indice dell'immagine selezionata
         activeElement++; // activeElement = activeElement + 1 ;
