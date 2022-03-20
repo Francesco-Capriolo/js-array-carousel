@@ -23,6 +23,8 @@ const text = [
 ]
 
 let carouselContent = '';
+let thumbnailDiv = "";
+
 //ciclo for per far girare gli array(div creato nel js) sulle immagini
 for (let i = 0; i < title.length; i++) {
     carouselContent += `
@@ -32,12 +34,20 @@ for (let i = 0; i < title.length; i++) {
     <div class = "description position-absolute top-50 end-0 d-none text-white  z-index bg-opacity-25 bg-secondary text-end">
     <h1>${title[i]}</h1>
     <p>${text[i]}</p>
+    </div>
+    `
+    thumbnailDiv += `<div class="col carousel-left">
+        <img class = "img-fluid w-100 h-100"
+        src = "${images[i]}"
+        alt = "01">
     </div>`
 }
 
 const carouselWrapper = document.querySelector('div.carousel-description');
 carouselWrapper.innerHTML += carouselContent;
 
+const carouselThumbnail = document.querySelector('div.my-thumbnail');
+carouselThumbnail.innerHTML += thumbnailDiv;
 
 // Recupero la lista degli elementi del carosello
 const carouselElements = document.getElementsByClassName('carousel-element');
@@ -86,7 +96,11 @@ nextButton.addEventListener('click', function () {
         descriptionCarousel[activeElement].classList.add("d-none")
 
         // incrementiamo di uno l'indice dell'immagine selezionata
-        activeElement++; // activeElement = activeElement + 1 ;
+        if (activeElement === images.length - 1) {
+            activeElement = 0;
+        } else {
+            activeElement++;
+        } // activeElement = activeElement + 1 ;
 
         //rimuovo la classe d-none
         carouselElements[activeElement].classList.remove('d-none');
